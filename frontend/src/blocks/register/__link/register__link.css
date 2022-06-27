@@ -1,0 +1,12 @@
+.register__link {
+  width: fit-content;
+  height: 17px;
+  line-height: 17px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: auto;
+}

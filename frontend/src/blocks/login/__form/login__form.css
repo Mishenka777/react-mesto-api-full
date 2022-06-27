@@ -1,0 +1,18 @@
+.login__form {
+  width: 358px;
+  background-color: black;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 950px) {
+  .login__form {
+    width: 260px;
+    margin: auto;
+  }
+}

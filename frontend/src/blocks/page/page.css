@@ -1,0 +1,19 @@
+.page {
+  max-width: 880px;
+  min-height: calc(100vh - 105px);
+  margin: auto;
+}
+
+@media screen and (max-width: 950px) {
+  .page {
+    max-width: 670px;
+    min-height: calc(100vh - 64px);
+  }
+}
+
+
+@media screen and (max-width: 615px) {
+  .page {
+    min-width: 320px;
+  }
+}
