@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const { errors, celebrate, Joi } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { regular } = require('./utils/constants');
@@ -10,8 +11,9 @@ const { login, postUser } = require('./controllers/users');
 const NotFoundError = require('./errors/NotFoundError');
 
 const { PORT = 3000 } = process.env;
-mongoose.connect('mongodb://localhost:27017/mestodb');
 const app = express();
+app.use(cors({ credentials: true, origin: ['https://localhost:3001', 'https://localhost:3000', 'https://misha666.students.nomoredomains.xyz', 'http://misha666.students.nomoreparties.sbs'] }));
+mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(requestLogger);
