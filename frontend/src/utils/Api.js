@@ -13,7 +13,8 @@ export default class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
       .then(res => this._getResponseServer(res))
   }
@@ -22,17 +23,19 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name,
         link
-      })
+      }),
     })
       .then(res => this._getResponseServer(res))
   }
 
   getProfileData() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
       .then(res => this._getResponseServer(res))
   }
@@ -41,6 +44,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({
         name,
         about
@@ -53,9 +57,10 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify(
         avatar
-      )
+      ),
     })
       .then(res => this._getResponseServer(res))
   };
@@ -63,7 +68,8 @@ export default class Api {
   deleteCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: this._headers,
+      credentials: 'include',
     })
       .then(res => this._getResponseServer(res))
   };
@@ -72,6 +78,7 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "PUT",
       headers: this._headers,
+      credentials: 'include',
     })
       .then(res => this._getResponseServer(res))
   }
@@ -80,15 +87,15 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
+      credentials: 'include',
     })
       .then(res => this._getResponseServer(res))
   }
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-38',
+  baseUrl: 'http://misha666.students.nomoreparties.sbs/',
   headers: {
-    authorization: 'd617258f-158a-41bb-8c66-f8b8f4af6cc1',
     'Content-Type': 'application/json'
   }
 });
