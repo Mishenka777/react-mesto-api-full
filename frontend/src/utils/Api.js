@@ -94,7 +94,7 @@ export default class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'http://misha666.students.nomoreparties.sbs/',
+  baseUrl: 'https://misha666.students.nomoreparties.sbs/',
   headers: {
     'Content-Type': 'application/json'
   }

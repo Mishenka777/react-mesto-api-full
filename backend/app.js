@@ -12,7 +12,7 @@ const NotFoundError = require('./errors/NotFoundError');
 
 const { PORT = 3000 } = process.env;
 const app = express();
-app.use(cors({ credentials: true, origin: ['https://localhost:3001', 'https://localhost:3000', 'https://misha666.students.nomoredomains.xyz', 'http://misha666.students.nomoreparties.sbs'] }));
+app.use(cors({ credentials: true, origin: ['https://localhost:3000', 'https://misha666.students.nomoredomains.xyz', 'http://misha666.students.nomoreparties.sbs', 'http://misha666.students.nomoredomains.xyz, https://misha666.students.nomoreparties.sbs'] }));
 mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use(bodyParser.json());
 app.use(cookieParser());

@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && scp -r ./build/* misha666@51.250.90.30:/home/misha666/react-mesto-api-full/frontend",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
