@@ -70,7 +70,7 @@ module.exports.deleteCardLikeById = (req, res, next) => {
       if (!cardData) {
         return next(new NotFoundError('Карточка не найдена'));
       }
-      return res.send({ cardData });
+      return res.send(cardData);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
