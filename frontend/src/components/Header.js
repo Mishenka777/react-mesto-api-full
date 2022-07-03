@@ -6,13 +6,13 @@ export default function Header(props) {
     <header className="header">
       <img className="header__logo" src={logo} alt="логотип" />
       <Switch>
-        <Route path="/sign-in">
-          <Link className="header__link" to="/sign-up">
+        <Route path="/signin">
+          <Link className="header__link" to="/signup">
             Регистрация
           </Link>
         </Route>
-        <Route path="/sign-up">
-          <Link className="header__link" to="/sign-in">
+        <Route path="/signup">
+          <Link className="header__link" to="/signin">
             Войти
           </Link>
         </Route>
@@ -21,7 +21,7 @@ export default function Header(props) {
             <p className="header__email">{props.onEmail}</p>
             <Link
               className="header__link"
-              to="/sign-in"
+              to="/signin"
               onClick={props.onLogOut}
             >
               Выйти

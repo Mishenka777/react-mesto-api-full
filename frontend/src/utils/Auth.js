@@ -21,9 +21,6 @@ export const login = (email, password) => {
     body: JSON.stringify({ email, password }),
   })
   .then(checkResponse)
-  .then((res) => {
-    return res.json();
-  })
 };
 
 export const checkToken = (token) => {

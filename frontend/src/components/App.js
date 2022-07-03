@@ -35,7 +35,7 @@ export default function App() {
       Auth.checkToken(token).then((res) => {
         setIsLoggedIn(true);
         history.push("/");
-        setEmail(res.data.email);
+        setEmail(res.email);
       });
     }
   }
@@ -43,7 +43,7 @@ export default function App() {
   function handleLogOut() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    history.push("/sign-in");
+    history.push("/signin");
   }
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function App() {
         if (res) {
           setIsInfoTooltipPopupOpen(true);
           setIsTypeTooltipPopup(true);
-          history.push("/sign-in");
+          history.push("/signin");
         }
       })
       .catch((res) => {
@@ -136,7 +136,8 @@ export default function App() {
     api
       .addCard(name, link)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        console.log(newCard)
+        //setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.log(`Ошибка ${err}`));
@@ -194,10 +195,10 @@ export default function App() {
             <Footer />
           </ProtectedRoute>
         </Switch>
-        <Route path="/sign-up">
+        <Route path="/signup">
           <Register onRegister={handleRegister} />
         </Route>
-        <Route path="/sign-in">
+        <Route path="/signin">
           <Login onLogin={handleLogin} />
         </Route>
         <EditProfilePopup
