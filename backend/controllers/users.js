@@ -29,11 +29,7 @@ module.exports.login = (req, res, next) => {
   return User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-      res.cookie('jwt', token, {
-        maxAge: 604800000,
-        httpOnly: true,
-        sameSite: true,
-      }).send({ token });
+      res.send({ token });
     })
     .catch(() => next(new UnauthorizedError('Неверный e-mail или пароль')));
 };

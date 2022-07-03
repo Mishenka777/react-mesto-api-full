@@ -19,7 +19,11 @@ export const login = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
+  })
+  .then(checkResponse)
+  .then((res) => {
+    return res.json();
+  })
 };
 
 export const checkToken = (token) => {

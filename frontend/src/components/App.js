@@ -79,7 +79,7 @@ export default function App() {
   function handleLogin(email, password) {
     Auth.login(email, password).then((res) => {
       if (res) {
-        localStorage.setItem("token", res.token);
+        localStorage.setItem(("token"), res.token);
         setIsLoggedIn(true);
         history.push("/");
         setEmail(email);
