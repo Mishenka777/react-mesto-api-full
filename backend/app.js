@@ -1,7 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { errors, celebrate, Joi } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -15,7 +15,6 @@ const app = express();
 app.use(cors({ credentials: true, origin: ['https://localhost:3000', 'https://misha666.students.nomoredomains.xyz', 'http://misha666.students.nomoreparties.sbs', 'http://misha666.students.nomoredomains.xyz', 'https://misha666.students.nomoreparties.sbs'] }));
 mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use(bodyParser.json());
-// app.use(cookieParser());
 app.use(requestLogger);
 app.get('/crash-test', () => {
   setTimeout(() => {
