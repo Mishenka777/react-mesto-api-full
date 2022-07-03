@@ -53,7 +53,7 @@ module.exports.putCardLikeById = (req, res, next) => {
       if (!cardData) {
         return next(new NotFoundError('Карточка не найдена'));
       }
-      return res.send({ data: cardData });
+      return res.send(cardData);
     })
     .catch((err) => {
       if (err.name === 'CastError') {

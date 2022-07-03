@@ -136,8 +136,7 @@ export default function App() {
     api
       .addCard(name, link)
       .then((newCard) => {
-        console.log(newCard)
-        //setCards([newCard, ...cards]);
+        setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.log(`Ошибка ${err}`));
